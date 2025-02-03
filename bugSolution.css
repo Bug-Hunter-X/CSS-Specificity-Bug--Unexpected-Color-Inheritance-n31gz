@@ -1,0 +1,25 @@
+The solution involves understanding CSS specificity and adjusting the selector order or adding important flags to override the unexpected inheritance. One approach is to reorder the rules to prioritize the more specific rules, thus giving the `color: green;` rule higher precedence:
+
+```css
+.container .inner p {
+  color: green;
+}
+
+.container p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+
+Another solution involves using the `!important` flag (though it's generally advised to avoid overusing it) on the specific selector:
+
+```css
+.container .inner p {
+  color: green !important;
+}
+```
+
+This forces the `color: green;` rule to always be applied.  For best practice consider reorganizing rules and adjusting selector specificity.
