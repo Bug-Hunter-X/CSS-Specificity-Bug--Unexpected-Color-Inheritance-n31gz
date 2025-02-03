@@ -1,0 +1,30 @@
+The following CSS code snippet demonstrates an uncommon issue related to the specificity of CSS selectors and the cascading order:
+
+```css
+.container {
+  width: 100px;
+  background-color: lightblue;
+}
+
+.container p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+.container .inner {
+  background-color: lightgreen;
+}
+
+.inner {
+  background-color: yellow;
+}
+
+.container .inner p {
+  color: green;
+}
+```
+
+The issue lies in the unexpected color of the paragraph within the `.inner` class when `.container .inner` is present.  Intuitively, you might expect the paragraph to be green, based on the `color: green;` rule within `.container .inner p`. However, the cascading and specificity of CSS lead to the paragraph inheriting the `color: blue` from the `.container p` rule.
